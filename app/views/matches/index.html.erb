@@ -1,0 +1,44 @@
+<h1>Football Scores and Fixtures</h1>
+
+<% if @error_message %>
+  <p><%= @error_message %></p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Tournament</th>
+        <th>Stage</th>
+        <th>Home Team</th>
+        <th>Home Score</th>
+        <th>Away Team</th>
+        <th>Away Score</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Status</th>
+        <th>Winner</th>
+        <th>Home Points</th>
+        <th>Away Points</th>
+        <th>Summary</th> <!-- Add this line -->
+      </tr>
+    </thead>
+    <tbody>
+      <% @matches.each do |match| %>
+        <tr>
+          <td>European Championship</td>
+          <td><%= match.stage %></td>
+          <td><%= match.home_team.name %></td>
+          <td><%= match.home_score %></td>
+          <td><%= match.away_team.name %></td>
+          <td><%= match.away_score %></td>
+          <td><%= match.start_time.to_date.strftime('%B %d, %Y') %></td>
+          <td><%= match.start_time.to_time.strftime('%H:%M %p') %></td>
+          <td><%= match.status %></td>
+          <td><%= match.winner %></td>
+          <td><%= match.home_points %></td>
+          <td><%= match.away_points %></td>
+          <td><%= match.accessible_event_summary %></td> <!-- Add this line -->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

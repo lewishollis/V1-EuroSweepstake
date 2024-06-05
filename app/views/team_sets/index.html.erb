@@ -1,0 +1,13 @@
+<h1>Team Sets</h1>
+<ul>
+  <% @team_sets.each do |team_set| %>
+    <li>
+      <%= team_set.name %> (Multiplier: <%= team_set.multiplier %>) - <%= team_set.friend.name %>
+      <ul>
+        <% team_set.teams.each do |team| %>
+          <li><%= team.name %> (Group: <%= team.group %>, Ranking: <%= team.ranking %>)</li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>

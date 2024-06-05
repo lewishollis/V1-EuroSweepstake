@@ -1,0 +1,20 @@
+<!-- app/views/matches/leaderboard.html.erb -->
+<h1>Leaderboard</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Friend</th>
+      <th>Total Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @friends = Friend.all.sort_by(&:total_score).reverse %>
+    <% @friends.each do |friend| %>
+      <tr>
+        <td><%= friend.name %></td>
+        <td><%= friend.total_score %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

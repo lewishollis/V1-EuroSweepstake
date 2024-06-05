@@ -1,0 +1,39 @@
+<!-- app/views/games/new.html.erb -->
+<h1>New Game</h1>
+
+<%= form_with(model: @game, url: games_path, method: :post) do |form| %>
+
+  <div>
+    <%= form.label :team1_id %>
+    <%= form.select :team1_id, options_for_select(Team.all.map{ |team| [team.name, team.id] }) %>
+  </div>
+
+  <div>
+    <%= form.label :team2_id %>
+    <%= form.select :team2_id, options_for_select(Team.all.map{ |team| [team.name, team.id] }) %>
+  </div>
+
+  <div>
+    <%= form.label :team1_score %>
+    <%= form.number_field :team1_score %>
+  </div>
+
+  <div>
+    <%= form.label :team2_score %>
+    <%= form.number_field :team2_score %>
+  </div>
+
+  <div>
+    <%= form.label :game_date %>
+    <%= form.datetime_field :game_date %>
+  </div>
+
+  <div>
+    <%= form.label :stage %>
+    <%= form.text_field :stage %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
